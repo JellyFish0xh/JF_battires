@@ -19,6 +19,7 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
 </head>
 
@@ -43,18 +44,29 @@
                     <div class="container-fluid">
 
                         <?php
-                        if($_GET["page"]=="tables")
-                        {
-                            include("pages/Browse_tables.php");
+                        if(isset($_GET["page"])){
+                            if($_GET["page"]=="tables")
+                            {
+                                include("pages/Browse_tables.php");
+                            }
+                            else if($_GET["page"]=="T_Users"){
+                                include ("pages/tables/users_table.php");
+                            }
+                            else if($_GET["page"]=="T_admin"){
+                                include ("pages/tables/admins_table.php");
+                            }
+                            else if($_GET["page"]=="T_products"){
+                                include ("pages/tables/products_table.php");
+                            }
+                            else if($_GET["page"]=="T_Brands"){
+                                include ("pages/tables/brands_table.php");
+                            }
+                            else if($_GET["page"]=="T_Categories"){
+                                include ("pages/tables/categories_table.php");
+                            }
                         }
-                        else if($_GET["page"]=="T_Users"){
-                            include ("pages/tables/users_table.php");
-                        }
-                        else if($_GET["page"]=="T_admin"){
-                            include ("pages/tables/admins_table.php");
-                        }
-                        else if($_GET["page"]=="T_products"){
-                            include ("pages/tables/products_table.php");
+                        else{
+                            echo "hello" ;
                         }
                         ?>
 
