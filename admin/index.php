@@ -48,10 +48,13 @@
                             include("pages/Browse_tables.php");
                         }
                         else if($_GET["page"]=="T_Users"){
-                            include ("pages/users_table.php");
+                            include ("pages/tables/users_table.php");
                         }
                         else if($_GET["page"]=="T_admin"){
-                            include ("pages/admins_table.php");
+                            include ("pages/tables/admins_table.php");
+                        }
+                        else if($_GET["page"]=="T_products"){
+                            include ("pages/tables/products_table.php");
                         }
                         ?>
 
