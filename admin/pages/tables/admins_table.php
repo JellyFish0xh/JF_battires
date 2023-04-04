@@ -14,6 +14,7 @@
                         <th>Office</th>
                         <th>Age</th>
                         <th>Salary</th>
+                        <th>image</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -22,11 +23,12 @@
                 <tbody>
                     <?php while($row = $res->fetch_assoc()){?>
                         <tr>
-                            <td><?= $row["Name"];  ?></td>
+                            <td><?= $row["username"];  ?></td>
                             <td><?= $row["Position"];  ?></td>
                             <td><?= $row["Office"];  ?></td>
                             <td><?= $row["Age"];  ?></td>
                             <td><?= $row["Salary"]." $";  ?></td>
+                            <td><img style="width: 150px;" src="../images/admins/<?=$row["img"]?>"></td>
                             <td>
                                 <a href="" class="btn btn-danger btn-circle btn-sm tableicons mx-3">
                                     <i class="fas fa-pen"></i>

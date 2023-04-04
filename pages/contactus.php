@@ -1,3 +1,16 @@
+<?php
+        if(isset($_COOKIE["userid"])){
+            $user_id=$_COOKIE['userid'];
+            $query=("SELECT * FROM users where id =$user_id");
+            $user_data = mysqli_query($conn,$query);
+            $user_data=$user_data->fetch_assoc();
+            $user_name = $user_data['Name'];
+            $f_text = "placeholder='$user_name' disabled";
+        }
+        else{
+            $f_text= "'placeholder = 'Your name'";
+        }
+?>
 <div class="container contact-form">
     <div class="contact-image">
         <img src="images/Ourlogo.png" alt="JF LOGO"/>
@@ -7,10 +20,10 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="text" name="txtName" class="form-control" placeholder="Your Name" required>
+                    <input type="text" name="txtName" class="form-control"<?= $f_text ?> required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="txtEmail" class="form-control" placeholder="Your Email" required>
+                    <input type="text" name="txtEmail" class="form-control" placeholder="<?= $user_data['E_mail']?>" required>
                 </div>
                 <div class="form-group">
                     <button type="button" name="btnSubmit" class="btn btn-success rounded smsg" placeholder="Send Message" required data-toggle="modal" data-target="#exampleModalCenter">Send message</button>

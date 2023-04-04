@@ -22,7 +22,7 @@
                                     $id = $lpro["id"];
                                     $pro_img=$conn->query("SELECT Images FROM products_img where product_id=$id")->fetch_assoc();
                                 ?>
-                                <img src="images/Products Image/<?= $pro_img["Images"]?>" class="d-block w-100">
+                                <img  style="height:600px;" src="images/Products_Image/<?= $pro_img["Images"]?>" class="d-block w-100">
                                 <br>
                                 <br>
                                 <div class="carousel-caption d-none d-md-block text-dark">

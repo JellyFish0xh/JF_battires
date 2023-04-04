@@ -37,7 +37,7 @@
                                     $pro_id = $product["id"];
                                     ?>
                                     <div class="card mx-auto my-4" style="width: 18rem;">
-                                        <img style="width:286px;height: 286px;" class="card-img-top" src="images/Products Image/<?php
+                                        <img style="width:286px;height: 286px;" class="card-img-top" src="images/Products_Image/<?php
                                         $pro_imgs = $conn->query("SELECT * FROM products_img where product_id=$pro_id limit 1")->fetch_assoc();
                                         echo $pro_imgs["Images"];
                                         ?>">

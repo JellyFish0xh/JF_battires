@@ -1,3 +1,26 @@
+<?php
+    include("admin/DB/connect.php");
+    if(isset($_GET["page"])){
+        $page = $_GET["page"];
+    }
+    else{
+        $page = "home";
+    }
+    if(isset($_COOKIE["userid"])){
+        $user_id=$_COOKIE['userid'];
+        $query=("SELECT * FROM users where id =$user_id");
+        $user_data = mysqli_query($conn,$query);
+        $user_data=$user_data->fetch_assoc();
+        $user_name = $user_data['Name'];
+        $f_text = "<a class='nav-link' href='pages/profile.php'>$user_name</a>";
+        $l_text = '<a class="nav-link" href=""><i class="bi bi-cart"></i></a>';
+    }
+    else{
+        $f_text= '<a class="nav-link" href="pages/login.php">Login</a>';
+        $l_text= '<a class="nav-link" href="pages/signup.php">Signup</a>';
+    }
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,62 +38,49 @@
             JF Battires
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
-            <li class="nav-item <?php
-                if(!(isset($_GET["page"]))){
-                    echo "active";
-                }
-            ?>">
-                <a class="nav-link" href="index.php">Home</a>
-            </li>
-            <li class="nav-item <?php
-                    if(isset($_GET["page"]))
-                    {
-                        if($_GET["page"]=="opr"){
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item <?php
+                        if($page=="home"){
                             echo "active";
                         }
-                    }
-            ?>">
-                <a class="nav-link" href="index.php?page=opr">Our Products</a>
-            </li>
-            <li class="nav-item <?php
-                    if(isset($_GET["page"]))
-                    {
-                        if($_GET["page"]=="Abu"){
-                            echo "active";
-                        }
-                    }
-            ?>">
-                <a class="nav-link" href="index.php?page=Abu">About us</a>
-            </li>
-            <li class="nav-item <?php
-                    if(isset($_GET["page"]))
-                    {
-                        if($_GET["page"]=="Cotus"){
-                            echo "active";
-                        }
-                    }
-            ?>">
-                <a class="nav-link" href="index.php?page=Cotus">Contact us</a>
-            </li>
-            <li class="nav-item <?php
-                    if(isset($_GET["page"]))
-                    {
-                        if($_GET["page"]=="signup"){
-                            echo "active";
-                        }
-                    }
-            ?>">
-                <a class="nav-link" href="pages/signup.php">Create Account</a>
-            </li>
+                    ?>">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item <?php
+                                if($page=="opr"){
+                                    echo "active";
+                                }
+                    ?>">
+                        <a class="nav-link" href="index.php?page=opr">Our Products</a>
+                    </li>
+                    <li class="nav-item <?php
+                                if($page=="Abu"){
+                                    echo "active";
+                                }
+                    ?>">
+                        <a class="nav-link" href="index.php?page=Abu">About us</a>
+                    </li>
+                    <li class="nav-item <?php
+                                if($page=="Cotus"){
+                                    echo "active";
+                                }
+                    ?>">
+                        <a class="nav-link" href="index.php?page=Cotus">Contact us</a>
+                    </li>
+                </ul>
+        </div>
+        <div>
+            <ul class="navbar-nav ml-auto p-2 bd-highlight"">
+                <li class="nav-item">
+                    <?= $f_text?>
+                </li>
+                <li class="nav-item">
+                    <?= $l_text; ?>
+                </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
         </div>
     </nav>

@@ -7,8 +7,9 @@ $("#insert_product").submit(function(e){
             success:function(res){
 				console.log(res);
 			} ,
-			error(err){
-                console.log(err);
+			error(err)
+                        {
+                                console.log(err);
 			} ,
 			processData : false ,
 			contentType : false ,

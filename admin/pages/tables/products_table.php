@@ -47,7 +47,7 @@
                                 $pro_imgs=$conn->query("SELECT Images FROM products_img where product_id=$pro_id");
                                 while($img=$pro_imgs->fetch_assoc()){
                             ?>
-                                <img style="width:100px;display:inline" src="../images/Products Image/<?php echo $img["Images"]?>" alt="">
+                                <img style="width:100px;display:inline" src="../images/Products_Image/<?php echo $img["Images"]?>" alt="">
                             <?php } ?>
                         </td>
                         <td>
@@ -101,7 +101,10 @@
                 </select>
             </div>
             <div name="amount" class="form-group">
-                <input type="number" class="form-control" placeholder="Amount">
+                <input type="number" class="form-control" placeholder="Amount" name="amount">
+            </div>
+            <div name="price" class="form-group">
+                <input type="number" class="form-control" placeholder="Price" name="price">
             </div>
             <div class="form-group">
                 <input type="file" name="img[]" class="form-control" placeholder="Images"  accept="image/*" multiple>
