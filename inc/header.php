@@ -12,8 +12,8 @@
         $user_data = mysqli_query($conn,$query);
         $user_data=$user_data->fetch_assoc();
         $user_name = $user_data['Name'];
-        $f_text = "<a class='nav-link' href='pages/profile.php'>$user_name</a>";
-        $l_text = '<a class="nav-link" href=""><i class="bi bi-cart"></i></a>';
+        $f_text = "<a class='nav-link' href='index.php?page=profile'>$user_name</a>";
+        $l_text = '<a class="nav-link" href="index.php?page=cart"><i class="bi bi-cart"></i></a>';
     }
     else{
         $f_text= '<a class="nav-link" href="pages/login.php">Login</a>';

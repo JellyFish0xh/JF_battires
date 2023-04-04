@@ -13,6 +13,12 @@
                 elseif($_GET["page"]=="Cotus"){
                     include("pages/contactus.php");
                 }
+                elseif($_GET["page"]=="cart"){
+                    echo "cart";
+                }
+                elseif($_GET["page"]=="profile"){
+                    echo "profile";
+                }
             }
             else
             {
